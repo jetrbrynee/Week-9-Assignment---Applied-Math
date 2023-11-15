@@ -21,11 +21,7 @@ public class Sphere : MonoBehaviour
 
     public void DrawSphere()
     {
-        if (sphereMaterial == null)
-        {
-            Debug.LogError("You need to add a material");
-            return;
-        }
+       
 
         GL.PushMatrix();
         GL.Begin(GL.LINES);
