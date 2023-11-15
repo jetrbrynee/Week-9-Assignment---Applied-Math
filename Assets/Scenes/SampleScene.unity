@@ -169,7 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cylinderRadius: 2
   cylinderHeight: 4
-  cylinderSegments: 12
+  cylinderSegments: 15
   baseScaleX: 1.5
   upperScaleX: 1
   cylinderCenter: {x: 0, y: 3, z: 0}
