@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Pyramid : MonoBehaviour
 {
-    public float pyramidHeight = 4.0f; // Set the height of the pyramid
-    public float pyramidBaseWidth = 4.0f; // Set the width of the pyramid's base
-    public Vector3 pyramidCenter = new Vector3(0, 0, 0); // Set the center position of the pyramid
-    public Material pyramidMaterial; // Assign the material in the Unity Inspector
+    public Material pyramidMaterial;
+    public float pyramidHeight = 4.0f;
+    public float pyramidBaseWidth = 4.0f;
+    public Vector3 pyramidCenter = new Vector3(0, 0, 0);
 
     private void OnPostRender()
     {
@@ -23,7 +23,7 @@ public class Pyramid : MonoBehaviour
     {
         if (pyramidMaterial == null)
         {
-            Debug.LogError("You need to add a material");
+            Debug.LogError("You need to add a material for the pyramid.");
             return;
         }
 
@@ -31,7 +31,6 @@ public class Pyramid : MonoBehaviour
         GL.Begin(GL.LINES);
         pyramidMaterial.SetPass(0);
 
-        // Implement code to draw a pyramid here.
         DrawPyramidShape(pyramidCenter, pyramidHeight, pyramidBaseWidth);
 
         GL.End();
@@ -51,25 +50,27 @@ public class Pyramid : MonoBehaviour
         Vector3 backRight = center + new Vector3(halfBaseWidth, -height * 0.5f, halfBaseWidth);
 
         // Draw base edges
-        GL.Vertex(frontLeft);
-        GL.Vertex(frontRight);
-        GL.Vertex(frontRight);
-        GL.Vertex(backRight);
-        GL.Vertex(backRight);
-        GL.Vertex(backLeft);
-        GL.Vertex(backLeft);
-        GL.Vertex(frontLeft);
+        DrawLine(center, frontLeft);
+        DrawLine(center, frontRight);
+        DrawLine(center, backLeft);
+        DrawLine(center, backRight);
 
         // Draw front and back faces
-        GL.Vertex(apex);
-        GL.Vertex(frontLeft);
-        GL.Vertex(apex);
-        GL.Vertex(frontRight);
-        GL.Vertex(apex);
-        GL.Vertex(backLeft);
-        GL.Vertex(apex);
-        GL.Vertex(backRight);
+        DrawLine(frontLeft, frontRight);
+        DrawLine(frontRight, backRight);
+        DrawLine(backRight, backLeft);
+        DrawLine(backLeft, frontLeft);
 
-        GL.End();
+        // Connect the corners of the base to the apex
+        DrawLine(frontLeft, apex);
+        DrawLine(frontRight, apex);
+        DrawLine(backLeft, apex);
+        DrawLine(backRight, apex);
+    }
+
+    private void DrawLine(Vector3 start, Vector3 end)
+    {
+        GL.Vertex(start);
+        GL.Vertex(end);
     }
 }
