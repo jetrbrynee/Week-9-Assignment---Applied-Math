@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class Parallelogram : MonoBehaviour
 {
-    public float parallelogramWidth = 4.0f; // Set the width of the parallelogram
-    public float parallelogramHeight = 4.0f; // Set the height of the parallelogram
-    public float slantAngle = 30.0f; // Set the angle for slanting
-    public Vector3 parallelogramCenter = new Vector3(0, 0, 0); // Set the center position of the parallelogram
-    public Material parallelogramMaterial; // Assign the material in the Unity Inspector
-
+    public float parallelogramWidth = 4.0f; 
+    public float parallelogramHeight = 4.0f; 
+    public float slantAngle = 30.0f; 
+    public Vector3 parallelogramCenter = new Vector3(0, 0, 0); // Set the center position of the parallelogram 
+    public Material parallelogramMaterial; 
     private void OnPostRender()
     {
         DrawParallelogram();
@@ -22,17 +21,13 @@ public class Parallelogram : MonoBehaviour
 
     public void DrawParallelogram()
     {
-        if (parallelogramMaterial == null)
-        {
-            Debug.LogError("You need to add a material");
-            return;
-        }
+       
 
         GL.PushMatrix();
         GL.Begin(GL.LINES);
         parallelogramMaterial.SetPass(0);
 
-        // Implement code to draw a parallelogram here.
+        
         DrawParallelogramShape(parallelogramCenter, parallelogramWidth, parallelogramHeight, slantAngle);
 
         GL.End();
@@ -48,7 +43,7 @@ public class Parallelogram : MonoBehaviour
         // Convert angle to radians
         float radianAngle = angle * Mathf.Deg2Rad;
 
-        // Define the parallelogram's vertices with slant
+        // For  Parallelogram's vertices with slant
         Vector3 bottomLeft = center + new Vector3(-halfWidth, -halfHeight, 0);
         Vector3 bottomRight = center + new Vector3(halfWidth, -halfHeight, 0);
         Vector3 topLeft = center + new Vector3(-halfWidth * Mathf.Cos(radianAngle), halfHeight * Mathf.Sin(radianAngle), 0);

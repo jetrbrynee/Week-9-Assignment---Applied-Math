@@ -164,12 +164,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 511036421}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ece680f629c455d4f9ff33524d8a7e8a, type: 3}
+  m_Script: {fileID: 11500000, guid: e44b46742fafc0a469cd12788613c9e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cylinderHeight: 3
-  cylinderRadius: 3
-  cylinderSegments: 32
+  cylinderRadius: 2
+  cylinderHeight: 4
+  cylinderSegments: 12
+  baseScaleX: 1.5
+  upperScaleX: 1
+  cylinderCenter: {x: 0, y: 3, z: 0}
   cylinderMaterial: {fileID: 2100000, guid: fb7ab764c5af2b54c96d8be247732d38, type: 2}
 --- !u!1 &519420028
 GameObject:
@@ -309,6 +312,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parallelogramWidth: 5
   parallelogramHeight: 5
+  slantAngle: 30
   parallelogramCenter: {x: 5, y: 0, z: 0}
   parallelogramMaterial: {fileID: 2100000, guid: fb7ab764c5af2b54c96d8be247732d38, type: 2}
 --- !u!1 &1075606489
@@ -403,7 +407,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f744e65d26a5b274f9e33b84cd68b952, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pyramidMaterial: {fileID: 2100000, guid: fb7ab764c5af2b54c96d8be247732d38, type: 2}
   pyramidHeight: 4
   pyramidBaseWidth: 5
-  pyramidCenter: {x: 0, y: 0, z: 0}
-  pyramidMaterial: {fileID: 2100000, guid: fb7ab764c5af2b54c96d8be247732d38, type: 2}
+  pyramidCenter: {x: 0, y: -3, z: 0}
