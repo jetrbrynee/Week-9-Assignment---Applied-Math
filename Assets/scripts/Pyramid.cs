@@ -21,11 +21,7 @@ public class Pyramid : MonoBehaviour
 
     public void DrawPyramid()
     {
-        if (pyramidMaterial == null)
-        {
-            Debug.LogError("You need to add a material for the pyramid.");
-            return;
-        }
+       
 
         GL.PushMatrix();
         GL.Begin(GL.LINES);

@@ -21,11 +21,7 @@ public class Parallelogram : MonoBehaviour
 
     public void DrawParallelogram()
     {
-        if (parallelogramMaterial == null)
-        {
-            Debug.LogError("You need to add a material");
-            return;
-        }
+       
 
         GL.PushMatrix();
         GL.Begin(GL.LINES);
